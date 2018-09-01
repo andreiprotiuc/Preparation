@@ -13,14 +13,30 @@ public class SingleLikedListWithTail<T> {
         this.size = 0;
     }
 
+    /**
+     * Get the size of the {@link SingleLikedListWithTail}
+     *
+     * @return the size of {@link SingleLikedListWithTail}
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * Checks if the {@link SingleLikedListWithTail} is empty
+     *
+     * @return true if {@link SingleLikedListWithTail} is empty, false otherwise
+     */
     public boolean empty() {
         return size == 0;
     }
 
+    /**
+     * Get the element from list by index. The method can throw {@link IndexOutOfBoundsException} if the index is not in the ranges
+     *
+     * @param index index of the element
+     * @return T element
+     */
     public T get(int index) {
         if (size <= 0 || index >= size) {
             throw new IndexOutOfBoundsException();
@@ -40,6 +56,11 @@ public class SingleLikedListWithTail<T> {
         return currentItem.getValue();
     }
 
+    /**
+     * Add element at the start of {@link SingleLikedListWithTail}
+     *
+     * @param value to be added
+     */
     public void pushFront(T value) {
         NodeList<T> node = new NodeList<>(value);
         node.setNext(root);
@@ -50,6 +71,11 @@ public class SingleLikedListWithTail<T> {
         size++;
     }
 
+    /**
+     * Return the first element of the {@link SingleLikedListWithTail}, and delete it from list
+     *
+     * @return the first element
+     */
     public T popFront() {
         NodeList<T> f = root;
         if (f == null)
@@ -63,6 +89,11 @@ public class SingleLikedListWithTail<T> {
         return f.getValue();
     }
 
+    /**
+     * Add element at the end of {@link SingleLikedListWithTail}
+     *
+     * @param value value to be added
+     */
     public void pushBack(T value) {
         NodeList<T> nodeToPush = new NodeList<>(value);
         if (tail == null) {
@@ -74,6 +105,11 @@ public class SingleLikedListWithTail<T> {
         size++;
     }
 
+    /**
+     * Get the last element and delete it from list
+     *
+     * @return the last element
+     */
     public T popBack() {
         if (empty()) {
             throw new NoSuchElementException();
@@ -96,6 +132,11 @@ public class SingleLikedListWithTail<T> {
         }
     }
 
+    /**
+     * Get first element from the list without deleting it
+     *
+     * @return value of the first element
+     */
     public T front() {
         if (root == null) {
             throw new NoSuchElementException();
@@ -103,6 +144,11 @@ public class SingleLikedListWithTail<T> {
         return root.getValue();
     }
 
+    /**
+     * Get last element from the list without deleting it
+     *
+     * @return value of the last element
+     */
     public T back() {
         if (tail == null) {
             throw new NoSuchElementException();
@@ -110,6 +156,12 @@ public class SingleLikedListWithTail<T> {
         return tail.getValue();
     }
 
+    /**
+     * Insert value at giving index
+     *
+     * @param index where to add the value
+     * @param value to be added
+     */
     public void insert(int index, T value) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -134,6 +186,11 @@ public class SingleLikedListWithTail<T> {
         }
     }
 
+    /**
+     * Remove element at giving index
+     *
+     * @param index of the element that should be removed
+     */
     public void erase(int index) {
         if (index >= size || root == null) {
             throw new IndexOutOfBoundsException();
@@ -165,6 +222,12 @@ public class SingleLikedListWithTail<T> {
         size--;
     }
 
+    /**
+     * Get the n'th element from the end of the list
+     *
+     * @param n the n'th element
+     * @return element
+     */
     public T valueFromEnd(int n) {
         if (n >= size || n < 0 || root == null) {
             throw new IndexOutOfBoundsException();
@@ -180,6 +243,11 @@ public class SingleLikedListWithTail<T> {
         return neededNode.getValue();
     }
 
+    /**
+     * Reverse the list elements
+     *
+     * @return new list that has elements in the reverse order
+     */
     public SingleLikedListWithTail<T> reverse() {
         SingleLikedListWithTail<T> reversedList = new SingleLikedListWithTail<>();
 
@@ -200,6 +268,11 @@ public class SingleLikedListWithTail<T> {
         return reversedList;
     }
 
+    /**
+     * Remove first matching value from the list if found.
+     *
+     * @param value that should be removed
+     */
     public void remove(Object value) {
         NodeList<T> currentNode = root;
 
