@@ -1,6 +1,6 @@
 package test;
 
-import com.andrei.datastructures.AutoResizeArray;
+import com.andrei.datastructures.array.AutoResizeArray;
 
 
 import org.junit.Test;

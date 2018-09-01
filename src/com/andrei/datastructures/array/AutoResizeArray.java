@@ -1,4 +1,4 @@
-package com.andrei.datastructures;
+package com.andrei.datastructures.array;
 
 /**
  * Resizable ArrayList data structure
